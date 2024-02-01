@@ -7,6 +7,9 @@ import Body from "./components/Body";
 import Footer from "./components/Footer";
 
 const AppLayout = () => {
+  // const searchText = "kfc"; this is nrml variable
+  //now will create react var using the hook called useState which return array
+
   return (
     <>
       <Header />
