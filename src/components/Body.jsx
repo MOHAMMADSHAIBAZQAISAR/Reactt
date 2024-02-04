@@ -13,6 +13,7 @@ const Body = () => {
       return restaurant.info.name.includes(searchText);
     });
   }
+
   return (
     <>
       <input

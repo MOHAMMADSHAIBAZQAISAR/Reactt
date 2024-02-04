@@ -1,5 +1,6 @@
 import React from "react";
 import { ReactDOM } from "react";
+import { useState } from "react";
 import FoodFireLogo from "../../Images/FoodFireLogo.png";
 
 const Title = () => (
@@ -9,9 +10,23 @@ const Title = () => (
 );
 
 const Header = () => {
+  const [title, setTitle] = useState("Food Fire");
+  const [isChanged, setChange] = useState(false);
+
   return (
     <div className="header">
       <Title />
+      <h1>{title}</h1>
+      <button
+        onClick={() => {
+          setChange(!isChanged);
+          {
+            isChanged ? setTitle("Baigan Truck") : setTitle("Food Truck");
+          }
+        }}
+      >
+        Change the Title
+      </button>
       <div className="nav-items">
         <ul>
           <li>Home</li>
