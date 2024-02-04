@@ -16,17 +16,7 @@ const Header = () => {
   return (
     <div className="header">
       <Title />
-      <h1>{title}</h1>
-      <button
-        onClick={() => {
-          setChange(!isChanged);
-          {
-            isChanged ? setTitle("Baigan Truck") : setTitle("Food Truck");
-          }
-        }}
-      >
-        Change the Title
-      </button>
+
       <div className="nav-items">
         <ul>
           <li>Home</li>

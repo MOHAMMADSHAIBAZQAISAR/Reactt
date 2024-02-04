@@ -2,7 +2,7 @@ import React, { useTransition } from "react";
 import { ReactDOM } from "react";
 import RestrauntCard from "./RestrauntCard";
 import restaurants from "./Constent";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Body = () => {
   const [searchText, setSearchText] = useState();
@@ -12,6 +12,21 @@ const Body = () => {
     return restaurantsList.filter((restaurant) => {
       return restaurant.info.name.includes(searchText);
     });
+  }
+
+  useEffect(() => {
+    //console.log("Hum hai useEffectt!!");
+    getRestaurents();
+  }, []);
+
+  async function getRestaurents() {
+    const info = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.37240&lng=78.43780&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
+    const json = await info.json();
+    setRestaurant(
+      json?.data?.cards[1].card.card.gridElements.infoWithStyle.restaurants
+    );
   }
 
   return (
