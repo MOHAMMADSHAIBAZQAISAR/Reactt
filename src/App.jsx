@@ -5,6 +5,8 @@ import "../index.css";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import Footer from "./components/Footer";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import About from "./components/About";
 
 const AppLayout = () => {
   // const searchText = "kfc"; this is nrml variable
@@ -19,8 +21,21 @@ const AppLayout = () => {
   );
 };
 
+//creating a route function
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <AppLayout />,
+  },
+  {
+    path: "/About",
+    element: <About />,
+  },
+]);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<AppLayout />);
+
+root.render(<RouterProvider router={appRouter} />);
 
 //  const heading = React.createElement("h1", { id: "title", key:"1"}, "SalamReact");
 
