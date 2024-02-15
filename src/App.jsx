@@ -5,8 +5,11 @@ import "../index.css";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import Footer from "./components/Footer";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import About from "./components/About";
+import Error from "./components/Error";
+import Contact from "./components/Contact";
+import RestaurantDetails from "./components/RestaurantDetails";
 
 const AppLayout = () => {
   // const searchText = "kfc"; this is nrml variable
@@ -15,7 +18,7 @@ const AppLayout = () => {
   return (
     <>
       <Header />
-      <Body />
+      <Outlet />
       <Footer />
     </>
   );
@@ -26,10 +29,25 @@ const appRouter = createBrowserRouter([
   {
     path: "/",
     element: <AppLayout />,
-  },
-  {
-    path: "/About",
-    element: <About />,
+    errorElement: <Error />,
+    children: [
+      {
+        path: "/",
+        element: <Body />,
+      },
+      {
+        path: "/About",
+        element: <About />,
+      },
+      {
+        path: "/Contact",
+        element: <Contact />,
+      },
+      {
+        path: "restaurant/:id",
+        element: <RestaurantDetails />,
+      },
+    ],
   },
 ]);
 

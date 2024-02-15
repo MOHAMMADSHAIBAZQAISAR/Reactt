@@ -2,6 +2,7 @@ import React from "react";
 import { ReactDOM } from "react";
 import { useState } from "react";
 import FoodFireLogo from "../../Images/FoodFireLogo.png";
+import { Link } from "react-router-dom";
 
 const Title = () => (
   <a href="/">
@@ -19,9 +20,9 @@ const Header = () => {
 
       <div className="nav-items">
         <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
+          <Link to="/"> Home </Link>
+          <Link to="/About"> About </Link>
+          <Link to="/Contact"> Contact </Link>
           <li>
             <i className="fa-solid fa-cart-shopping"></i>
           </li>
