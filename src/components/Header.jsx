@@ -20,9 +20,16 @@ const Header = () => {
 
       <div className="nav-items">
         <ul>
-          <Link to="/"> Home </Link>
-          <Link to="/About"> About </Link>
-          <Link to="/Contact"> Contact </Link>
+          <Link className="link" to="/">
+            Home
+          </Link>
+          <Link className="link" to="/About">
+            About
+          </Link>
+          <Link className="link" to="/Contact">
+            Contact
+          </Link>
+
           <li>
             <i className="fa-solid fa-cart-shopping"></i>
           </li>

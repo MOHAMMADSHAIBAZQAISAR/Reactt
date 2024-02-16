@@ -13,7 +13,9 @@ const Body = () => {
 
   function filterData(searchText, restaurantsList) {
     return restaurantsList.filter((restaurant) => {
-      return restaurant.info.name.includes(searchText);
+      return restaurant.info.name
+        .toLowerCase()
+        .includes(searchText.toLowerCase());
     });
   }
 
@@ -39,31 +41,35 @@ const Body = () => {
     <Shimmer />
   ) : (
     <>
-      <input
-        type="text"
-        placeholder="searchBox"
-        className="search-input"
-        value={searchText}
-        onChange={(e) => {
-          //call the filter fun
-          setSearchText(e.target.value);
-        }}
-      />
-      <button
-        className="search-btn"
-        onClick={() => {
-          console.log(searchText);
-          setfilteredRestaurents(filterData(searchText, allrestaurantsList));
-        }}
-      >
-        Search
-      </button>
+      <div className="search-container">
+        <input
+          type="text"
+          placeholder="search for restaurants"
+          className="search-input"
+          value={searchText}
+          onChange={(e) => {
+            //call the filter fun
+            setSearchText(e.target.value);
+          }}
+        />
+        <button
+          className="search-btn"
+          onClick={() => {
+            console.log(searchText);
+            setfilteredRestaurents(filterData(searchText, allrestaurantsList));
+          }}
+        >
+          Search
+        </button>
+      </div>
+
       <div className="card-list">
         {/* You have to write logic for NO restraunt fount here */}
         {filteredRestaurents.length ? (
           filteredRestaurents.map((restaruent) => {
             return (
               <Link
+                className="link"
                 to={"/restaurant/" + restaruent.info.id}
                 key={restaruent.info.id}
               >

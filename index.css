@@ -1,4 +1,10 @@
 
+/* Links */
+.link {
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Inherit color from parent (no blue color) */
+}
+
 
 
 /* Header CSS */
@@ -36,29 +42,6 @@
     font-size: large;
     cursor: pointer;
 }
-
-/* Body CSS */
-/* .card {
-    background-color: #ffffff;
-    border-color: black;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    margin: 20px;
-    padding: 20px;
-    width: 300px;
-    transition: transform 0.3s ease-in-out;
-} 
-  
-  .card:hover {
-    transform: scale(1.05);
-  }
-
-  .card-list{
-    display: flex;
-    justify-content: space-around; /* Adjust as needed (e.g., space-between, space-evenly) */
-    /* flex-wrap: wrap; Allows cards to wrap to the next line if the container is not wide enough */
-
     /* Body CSS */
 .card {
     background-color: #ffffff;
@@ -229,3 +212,73 @@ p {
   color: #fffcfc;
 }
 
+
+/* Restaurant-info */
+.restaurant-info {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px auto; /* Center the component horizontally */
+  max-width: 400px; /* Limit the maximum width */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.restaurant-info h1 {
+  font-size: 28px; /* Increase the font size */
+  margin-bottom: 15px; /* Increase the bottom margin */
+}
+
+.restaurant-info img {
+  width: 100%; /* Set a fixed width */
+  max-width: 400px; /* Limit the maximum width */
+  height: auto; /* Let the height adjust automatically */
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+
+.restaurant-info h3 {
+  font-size: 18px; /* Increase the font size */
+  margin-bottom: 15px; /* Increase the bottom margin */
+}
+
+.restaurant-info ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.restaurant-info ul li {
+  margin-bottom: 10px; /* Increase the bottom margin */
+  font-size: 16px; /* Increase the font size */
+}
+/* 
+Search-Box */
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.search-btn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.search-btn:hover {
+  background-color: #0056b3;
+}

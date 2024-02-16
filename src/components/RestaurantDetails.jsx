@@ -7,6 +7,7 @@ import { IMG_URL } from "./Constent";
 const RestaurantDetails = () => {
   const [restraunt, setRestraunt] = useState(null);
   const { id } = useParams();
+  console.log(useState());
   useEffect(() => {
     getRestaurantDetails();
   }, []);
@@ -28,17 +29,19 @@ const RestaurantDetails = () => {
     <Shimmer />
   ) : (
     <>
-      <img src={IMG_URL + restraunt.cloudinaryImageId}></img>
-      <h1>Restaurant id : {restraunt.id}</h1>
-      <h2> Restaurant name: {restraunt.name}</h2>
-      <h3>City: {restraunt.city}</h3>
-      <div>
-        <h1>Cuisines</h1>
-        <ul>
-          {Object.values(restraunt?.cuisines).map((item) => (
-            <li key={item.id}> {item}</li>
-          ))}
-        </ul>
+      <div className="restaurant-info">
+        <h1> Restaurant name: {restraunt.name}</h1>
+        <img src={IMG_URL + restraunt.cloudinaryImageId}></img>
+        <h3>Restaurant id : {restraunt.id}</h3>
+        <h3>City: {restraunt.city}</h3>
+        <div>
+          <h1>Cuisines</h1>
+          <ul>
+            {Object.values(restraunt?.cuisines).map((item) => (
+              <li key={item.id}> {item}</li>
+            ))}
+          </ul>
+        </div>
       </div>
     </>
   );
