@@ -10,6 +10,7 @@ import About from "./components/About";
 import Error from "./components/Error";
 import Contact from "./components/Contact";
 import RestaurantDetails from "./components/RestaurantDetails";
+import Profile from "./components/Profile";
 
 const AppLayout = () => {
   // const searchText = "kfc"; this is nrml variable
@@ -38,6 +39,12 @@ const appRouter = createBrowserRouter([
       {
         path: "/About",
         element: <About />,
+        children: [
+          {
+            path: "Profile", // dont write /profile
+            element: <Profile name="FoodFire" />,
+          },
+        ],
       },
       {
         path: "/Contact",
