@@ -13,7 +13,11 @@ function Shimmer() {
   return (
     <div className="shimmer-container">
       {[1, 2, 3].map((index) => (
-        <div key={index} className="shimmer-card"></div>
+        <div
+          key={index}
+          className="shimmer-card"
+          style={{ border: "2px solid gray ", fontWeight: "bold" }}
+        ></div>
       ))}
     </div>
   );

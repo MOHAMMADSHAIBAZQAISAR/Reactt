@@ -3,26 +3,17 @@ import RestrauntCard from "./RestrauntCard";
 import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
 import { IMG_URL } from "./Constent";
+import { RES_MENUE } from "./Constent";
+import useResDetails from "../utils/useResDetails";
+import useOnline from "../utils/useOnline";
 
 const RestaurantDetails = () => {
-  const [restraunt, setRestraunt] = useState(null);
   const { id } = useParams();
-  console.log(useState());
-  useEffect(() => {
-    getRestaurantDetails();
-  }, []);
+  const restraunt = useResDetails(id);
 
-  async function getRestaurantDetails() {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=17.37240&lng=78.43780&restaurantId=" +
-        id +
-        "&catalog_qa=undefined&submitAction=ENTER"
-    );
-    const json = await data.json();
-    console.log(json);
-    console.log(json?.data?.cards[0]?.card?.card?.info?.name);
-    //to render this on our page will be using useState.
-    setRestraunt(json?.data?.cards[0]?.card?.card?.info);
+  const offline = useOnline();
+  if (!offline) {
+    return <h1>🔴 You are offline!!</h1>;
   }
 
   return !restraunt ? (

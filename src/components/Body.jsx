@@ -1,23 +1,17 @@
 import React, { useTransition } from "react";
 import { ReactDOM } from "react";
 import RestrauntCard from "./RestrauntCard";
-import restaurants from "./Constent";
+import restaurants, { RESTAURANT_DETAILS } from "./Constent";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import { filterData } from "../utils/Helper";
+import { RES_DETAILS } from "./Constent";
 
 const Body = () => {
   const [searchText, setSearchText] = useState();
   const [allrestaurantsList, setallRestaurant] = useState([]);
   const [filteredRestaurents, setfilteredRestaurents] = useState([]);
-
-  function filterData(searchText, restaurantsList) {
-    return restaurantsList.filter((restaurant) => {
-      return restaurant.info.name
-        .toLowerCase()
-        .includes(searchText.toLowerCase());
-    });
-  }
 
   useEffect(() => {
     //console.log("Hum hai useEffectt!!");
@@ -25,9 +19,7 @@ const Body = () => {
   }, []);
 
   async function getRestaurents() {
-    const info = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.37240&lng=78.43780&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
+    const info = await fetch(RES_DETAILS);
     const json = await info.json();
     setallRestaurant(
       json?.data?.cards[1].card.card.gridElements.infoWithStyle.restaurants

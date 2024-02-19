@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import FoodFireLogo from "../Images/FoodFireLogo.png";
 import "../index.css";
@@ -11,6 +11,8 @@ import Error from "./components/Error";
 import Contact from "./components/Contact";
 import RestaurantDetails from "./components/RestaurantDetails";
 import Profile from "./components/Profile";
+
+const Instamart = lazy(() => import("./components/Instamart"));
 
 const AppLayout = () => {
   // const searchText = "kfc"; this is nrml variable
@@ -53,6 +55,14 @@ const appRouter = createBrowserRouter([
       {
         path: "restaurant/:id",
         element: <RestaurantDetails />,
+      },
+      {
+        path: "/instamart",
+        element: (
+          <Suspense>
+            <Instamart />
+          </Suspense>
+        ),
       },
     ],
   },
