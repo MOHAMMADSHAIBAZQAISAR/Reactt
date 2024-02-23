@@ -16,7 +16,9 @@ const useResDetails = (resId) => {
     );
     const json = await data.json();
     //to render this on our page will be using useState.
-    setRestraunt(json?.data?.cards[0]?.card?.card?.info);
+    //console.log(json?.data?.cards[2]?.card?.card?.info);
+
+    setRestraunt(json?.data?.cards[2]?.card?.card?.info);
   }
 
   //we return the fetched res details.

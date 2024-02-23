@@ -10,6 +10,7 @@ import useOnline from "../utils/useOnline";
 const RestaurantDetails = () => {
   const { id } = useParams();
   const restraunt = useResDetails(id);
+  console.log(restraunt);
 
   const offline = useOnline();
   if (!offline) {
