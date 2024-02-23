@@ -6,7 +6,11 @@ import { Link } from "react-router-dom";
 
 const Title = () => (
   <a href="/">
-    <img className="logo" src={FoodFireLogo} alt="FoodFireLogo" />
+    <img
+      className="flex h-28 p-2   wrap"
+      src={FoodFireLogo}
+      alt="FoodFireLogo"
+    />
   </a>
 );
 
@@ -15,18 +19,18 @@ const Header = () => {
   const [isChanged, setChange] = useState(false);
 
   return (
-    <div className="header">
+    <div className="flex pl-8 justify-between">
       <Title />
 
-      <div className="nav-items">
+      <div className="flex py-10">
         <ul>
-          <Link className="link" to="/">
+          <Link className="px-2" to="/">
             Home
           </Link>
-          <Link className="link" to="/About">
+          <Link className="px-2" to="/About">
             About
           </Link>
-          <Link className="link" to="/Contact">
+          <Link className="px-2" to="/Contact">
             Contact
           </Link>
 

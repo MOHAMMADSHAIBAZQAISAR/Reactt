@@ -33,7 +33,7 @@ const Body = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="search-container">
+      <div className="flex justify-center items-center">
         <input
           type="text"
           placeholder="search for restaurants"
@@ -45,7 +45,7 @@ const Body = () => {
           }}
         />
         <button
-          className="search-btn"
+          className="p-2 m-2 bg-gray-50 hover:bg-slate-600 "
           onClick={() => {
             console.log(searchText);
             setfilteredRestaurents(filterData(searchText, allrestaurantsList));
@@ -55,7 +55,7 @@ const Body = () => {
         </button>
       </div>
 
-      <div className="card-list">
+      <div className="flex flex-wrap">
         {/* You have to write logic for NO restraunt fount here */}
         {filteredRestaurents.length ? (
           filteredRestaurents.map((restaruent) => {
