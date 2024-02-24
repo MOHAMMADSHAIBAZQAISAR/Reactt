@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+import UserContext from "../utils/UserContext";
 
 const Footer = () => {
+  const { user } = useContext(UserContext);
   return (
     <footer className="footer">
       <div className="social-media">
@@ -26,6 +28,7 @@ const Footer = () => {
         >
           <FaInstagram />
         </a>
+        <span>{user.name}</span>
       </div>
       <p>&copy; 2024 Food Fire .All rights reserved.</p>
     </footer>

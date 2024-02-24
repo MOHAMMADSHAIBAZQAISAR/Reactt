@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { ReactDOM } from "react";
 import { useState } from "react";
 import FoodFireLogo from "../../Images/FoodFireLogo.png";
 import { Link } from "react-router-dom";
+import UserContext from "../utils/UserContext";
 
 const Title = () => (
   <a href="/">
@@ -11,6 +12,7 @@ const Title = () => (
 );
 
 const Header = () => {
+  const { user } = useContext(UserContext);
   const [title, setTitle] = useState("Food Fire");
   const [isChanged, setChange] = useState(false);
 
@@ -29,6 +31,8 @@ const Header = () => {
           <Link className="link" to="/Contact">
             Contact
           </Link>
+
+          <span>{user.name}</span>
 
           <li>
             <i className="fa-solid fa-cart-shopping"></i>

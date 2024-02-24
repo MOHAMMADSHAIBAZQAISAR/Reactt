@@ -2,16 +2,19 @@ import React, { useTransition } from "react";
 import { ReactDOM } from "react";
 import RestrauntCard from "./RestrauntCard";
 import restaurants, { RESTAURANT_DETAILS } from "./Constent";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { filterData } from "../utils/Helper";
 import { RES_DETAILS } from "./Constent";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [searchText, setSearchText] = useState();
   const [allrestaurantsList, setallRestaurant] = useState([]);
   const [filteredRestaurents, setfilteredRestaurents] = useState([]);
+
+  const { user, setUser } = useContext(UserContext);
 
   useEffect(() => {
     //console.log("Hum hai useEffectt!!");
@@ -53,6 +56,15 @@ const Body = () => {
         >
           Search
         </button>
+        <input
+          value={user.name}
+          onChange={(e) => {
+            setUser({
+              name: e.target.value,
+              email: "newMail@gmail.com",
+            });
+          }}
+        ></input>
       </div>
 
       <div className="card-list">

@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useState } from "react";
 import ReactDOM from "react-dom/client";
 import FoodFireLogo from "../Images/FoodFireLogo.png";
 import "../index.css";
@@ -11,6 +11,7 @@ import Error from "./components/Error";
 import Contact from "./components/Contact";
 import RestaurantDetails from "./components/RestaurantDetails";
 import Profile from "./components/Profile";
+import UserContext from "./utils/UserContext";
 
 const Instamart = lazy(() => import("./components/Instamart"));
 
@@ -18,10 +19,23 @@ const AppLayout = () => {
   // const searchText = "kfc"; this is nrml variable
   //now will create react var using the hook called useState which return array
 
+  //Creating the user state varaible for understanding the REACT CONTEXT
+  const [user, setUser] = useState({
+    name: "Shaibaz",
+    mail: "supportFood@gmail.com",
+  });
+
   return (
     <>
-      <Header />
-      <Outlet />
+      <UserContext.Provider
+        value={{
+          user: user,
+          setUser: setUser,
+        }}
+      >
+        <Header />
+        <Outlet />
+      </UserContext.Provider>
       <Footer />
     </>
   );
