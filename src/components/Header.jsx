@@ -7,7 +7,11 @@ import UserContext from "../utils/UserContext";
 
 const Title = () => (
   <a href="/">
-    <img className="logo" src={FoodFireLogo} alt="FoodFireLogo" />
+    <img
+      className="h-16 w-auto transition duration-300 transform hover:scale-110"
+      src={FoodFireLogo}
+      alt="FoodFireLogo"
+    />
   </a>
 );
 
@@ -17,22 +21,20 @@ const Header = () => {
   const [isChanged, setChange] = useState(false);
 
   return (
-    <div className="header">
+    <div className="flex items-center justify-between py-4 px-8 bg-white">
       <Title />
 
-      <div className="nav-items">
-        <ul>
-          <Link className="link" to="/">
+      <div className="">
+        <ul className="flex space-x-4">
+          <Link className="text-gray-500 hover:text-orange-600" to="/">
             Home
           </Link>
-          <Link className="link" to="/About">
+          <Link className="text-gray-500 hover:text-orange-600" to="/About">
             About
           </Link>
-          <Link className="link" to="/Contact">
+          <Link className="text-gray-500 hover:text-orange-600" to="/Contact">
             Contact
           </Link>
-
-          <span>{user.name}</span>
 
           <li>
             <i className="fa-solid fa-cart-shopping"></i>

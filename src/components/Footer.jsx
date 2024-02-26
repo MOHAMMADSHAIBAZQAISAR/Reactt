@@ -5,32 +5,35 @@ import UserContext from "../utils/UserContext";
 const Footer = () => {
   const { user } = useContext(UserContext);
   return (
-    <footer className="footer">
-      <div className="social-media">
+    <footer className="flex flex-col items-center justify-center bg-black text-white py-8">
+      <div className="flex items-center space-x-4">
         <a
           href="https://www.linkedin.com/in/mohammad-shaibaz-qaisar-597103219/"
           target="_blank"
           rel="noopener noreferrer"
+          className="hover:text-orange-400"
         >
-          <FaLinkedin />
+          <FaLinkedin className="text-xl" />
         </a>
         <a
           href="https://twitter.com/QaisarShaibaz"
           target="_blank"
           rel="noopener noreferrer"
+          className="hover:text-orange-400"
         >
-          <FaTwitter />
+          <FaTwitter className="text-xl" />
         </a>
         <a
           href="https://www.instagram.com/mds_shaibaz/"
           target="_blank"
           rel="noopener noreferrer"
+          className="hover:text-orange-400"
         >
-          <FaInstagram />
+          <FaInstagram className="text-xl" />
         </a>
-        <span>{user.name}</span>
+        {/* <span className="hover:text-blue-500">{user.name}</span> */}
       </div>
-      <p>&copy; 2024 Food Fire .All rights reserved.</p>
+      <p className="mt-4">&copy; 2024 Food Fire .All rights reserved.</p>
     </footer>
   );
 };

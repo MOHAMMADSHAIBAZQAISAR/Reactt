@@ -82,12 +82,12 @@ class About extends React.Component {
   render() {
     console.log("In parent Render");
     return (
-      <>
-        <h1>About Page</h1>
-        <h2>Helloo! kuch nahe hai yaha!</h2>
+      <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
+        <h1 className="text-3xl font-bold mb-4 text-gray-800">About Page</h1>
+        <h2 className="text-xl text-gray-600">Hello! kuch nahe hai yaha!</h2>
         <Outlet />
         {/* <Outlet /> */}
-      </>
+      </div>
     );
   }
 }

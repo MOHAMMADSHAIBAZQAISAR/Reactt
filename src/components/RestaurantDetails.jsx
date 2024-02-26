@@ -21,14 +21,20 @@ const RestaurantDetails = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="restaurant-info">
-        <h1> Restaurant name: {restraunt.name}</h1>
-        <img src={IMG_URL + restraunt.cloudinaryImageId}></img>
-        <h3>Restaurant id : {restraunt.id}</h3>
-        <h3>City: {restraunt.city}</h3>
+      <div className="max-w-md mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+        <h1 className="text-xl font-bold mb-2">
+          {" "}
+          Restaurant name: {restraunt.name}
+        </h1>
+        <img
+          className="w-full h-48 object-cover"
+          src={IMG_URL + restraunt.cloudinaryImageId}
+        ></img>
+        <p className="text-gray-600 mb-2">Restaurant id : {restraunt.id}</p>
+        <p className="text-gray-600 mb-2">City: {restraunt.city}</p>
         <div>
-          <h1>Cuisines</h1>
-          <ul>
+          <h1 className="text-lg font-bold text-gray-700 mb-2">Cuisines</h1>
+          <ul className="text-gray-600">
             {Object.values(restraunt?.cuisines).map((item) => (
               <li key={item.id}> {item}</li>
             ))}
