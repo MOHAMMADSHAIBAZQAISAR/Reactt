@@ -6,11 +6,12 @@ import { IMG_URL } from "./Constent";
 import { RES_MENUE } from "./Constent";
 import useResDetails from "../utils/useResDetails";
 import useOnline from "../utils/useOnline";
+import Menu from "./Menu";
 
 const RestaurantDetails = () => {
   const { id } = useParams();
   const restraunt = useResDetails(id);
-  console.log(restraunt);
+  //console.log(restraunt);
 
   const offline = useOnline();
   if (!offline) {
@@ -21,7 +22,7 @@ const RestaurantDetails = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="max-w-md mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+      <div className="max-xl: mx-auto bg-white shadow-lg rounded-lg overflow-hidden h-full">
         <h1 className="text-xl font-bold mb-2">
           {" "}
           Restaurant name: {restraunt.name}
@@ -41,6 +42,7 @@ const RestaurantDetails = () => {
           </ul>
         </div>
       </div>
+      <Menu id={id} />
     </>
   );
 };
