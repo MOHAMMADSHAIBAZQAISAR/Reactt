@@ -49,7 +49,7 @@ const Body = () => {
             }}
           />
           <button
-            className="px-4 py-2 rounded-r-md bg-gray-500 text-white hover:bg-orange-400 focus:outline-none focus:ring-2 focus:ring-blue-500 ml-2"
+            className="px-4 py-2 rounded-r-md bg-orange-400 text-white hover:bg-orange-500 focus:outline-none focus:ring-2 focus:ring-blue-500 ml-2"
             onClick={() => {
               console.log(searchText);
               setfilteredRestaurents(

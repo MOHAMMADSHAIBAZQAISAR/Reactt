@@ -4,6 +4,7 @@ import { useState } from "react";
 import FoodFireLogo from "../../Images/FoodFireLogo.png";
 import { Link } from "react-router-dom";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 const Title = () => (
   <a href="/">
@@ -16,6 +17,7 @@ const Title = () => (
 );
 
 const Header = () => {
+  const cartItems = useSelector((store) => store.cart.items);
   const { user } = useContext(UserContext);
   const [title, setTitle] = useState("Food Fire");
   const [isChanged, setChange] = useState(false);
@@ -36,9 +38,9 @@ const Header = () => {
             Contact
           </Link>
 
-          <li>
-            <i className="fa-solid fa-cart-shopping"></i>
-          </li>
+          <Link className="text-gray-500 hover:text-orange-600" to="/Cart">
+            Cart- {cartItems.length}
+          </Link>
         </ul>
       </div>
     </div>

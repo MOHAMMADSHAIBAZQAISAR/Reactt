@@ -1,10 +1,20 @@
 import React from "react";
 import useItems from "../utils/useItems";
 import { IMG_URL } from "./Constent";
+import { Dispatch } from "@reduxjs/toolkit";
+import { addItem } from "../utils/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const Menu = ({ id }) => {
+  const dispatch = useDispatch();
+
+  const handleAddItem = (item) => {
+    console.log(item);
+    dispatch(addItem(item));
+  };
+
   const items = useItems(id);
-  console.log(items);
+  // console.log(items);
   return (
     <>
       {items &&
@@ -24,9 +34,14 @@ const Menu = ({ id }) => {
               <img
                 className="w-24 h-24 object-cover"
                 src={IMG_URL + item?.card?.info?.imageId}
-                alt={item?.info?.name}
+                // alt={item?.info?.name}
               />
-              <button className="block w-full m-2 py-2 px-4 bg-gray-500 text-white rounded hover:bg-orange-500 focus:outline-none transition duration-300">
+              <button
+                className="block w-full m-2 py-2 px-4 bg-gray-500 text-white rounded hover:bg-orange-500 focus:outline-none transition duration-300"
+                onClick={() => {
+                  handleAddItem(item?.card?.info);
+                }}
+              >
                 Add
               </button>
             </div>
